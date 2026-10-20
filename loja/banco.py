@@ -19,7 +19,9 @@ class ProdutoRegistro(SQLModel, table=True):
 
 
 def criar_engine(url=URL_BANCO):
-    return create_engine(url, connect_args={"check_same_thread": False})
+    # check_same_thread é um argumento só do SQLite: outros bancos não o conhecem
+    argumentos = {"check_same_thread": False} if url.startswith("sqlite") else {}
+    return create_engine(url, connect_args=argumentos)
 
 
 def engine_em_memoria():
