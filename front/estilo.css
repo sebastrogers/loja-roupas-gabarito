@@ -60,3 +60,27 @@ button {
 }
 
 footer { text-align: center; padding: 24px; color: #555; }
+
+/* Etapa 18: formulário e telas pequenas */
+
+.formulario {
+  display: flex;
+  flex-direction: column;     /* um campo embaixo do outro */
+  gap: 8px;
+  max-width: 420px;
+}
+.formulario input,
+.formulario select {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+}
+.formulario button { margin-top: 12px; align-self: flex-start; }
+
+/* celular: uma coluna de cartões e menu embaixo do nome */
+@media (max-width: 700px) {
+  section { grid-template-columns: 1fr; }
+  header { flex-wrap: wrap; }
+  nav { margin-left: 0; width: 100%; }
+}

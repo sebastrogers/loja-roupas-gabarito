@@ -45,3 +45,16 @@ def test_toda_imagem_tem_alt(pagina):
     for tag, atributos in ler(pagina):
         if tag == "img":
             assert "alt" in atributos, f"imagem sem alt: {atributos.get('src')}"
+
+
+def test_todo_campo_tem_label():
+    tags = ler(PASTA / "cadastro.html")
+    rotulos = {a.get("for") for t, a in tags if t == "label"}
+    for tag, atributos in tags:
+        if tag in ("input", "select"):
+            assert atributos.get("id") in rotulos, f"campo sem label: {atributos.get('id')}"
+
+
+def test_campos_do_formulario_batem_com_a_api():
+    nomes = {a.get("name") for t, a in ler(PASTA / "cadastro.html") if t in ("input", "select")}
+    assert nomes == {"tipo", "nome", "preco", "tamanho"}

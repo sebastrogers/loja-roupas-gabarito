@@ -11,6 +11,7 @@ pip install -r requirements.txt
 pytest -v
 fastapi dev api.py              # abre a API em http://127.0.0.1:8000/docs
                                  # os produtos ficam gravados em loja.db
+                                 # os produtos ficam gravados em loja.db
 ```
 
 ![testes](https://github.com/SEU-USUARIO/loja-roupas/actions/workflows/testes.yml/badge.svg)
@@ -32,3 +33,7 @@ fastapi dev api.py              # abre a API em http://127.0.0.1:8000/docs
 | `loja/repositorio.py` | o repositório: única parte que conversa com o banco | 10 |
 | `loja/servico.py` | as regras do catálogo e as exceções do domínio | 10 |
 | `tests/test_repositorio.py`, `tests/test_servico.py` | testes com banco em memória | 10 |
+| `front/index.html` | a vitrine, em HTML semântico | 11 |
+| `front/cadastro.html` | o formulário de cadastro, acessível | 11 |
+| `front/estilo.css` | o visual: Flexbox, Grid e telas pequenas | 11 |
+| `tests/test_front.py` | checagens de estrutura e acessibilidade das páginas | 11 |
